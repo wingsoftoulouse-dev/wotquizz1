@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Wings Of Toulouse</title>
+    <title>Quiz d'Entraînement - Wings Of Toulouse</title>
     <style>
         * {
             margin: 0;
@@ -32,22 +32,23 @@
             text-align: center;
             color: #666;
             margin-bottom: 30px;
+            line-height: 1.6;
         }
-        .email-section {
+        .event-info {
+            background: linear-gradient(135deg, #04143B 0%, #0a2865 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
             margin-bottom: 30px;
+            text-align: center;
         }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #04143B;
-            font-weight: bold;
+        .event-info h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
         }
-        input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #04143B;
-            border-radius: 4px;
+        .event-info p {
             font-size: 16px;
+            line-height: 1.5;
         }
         .question {
             margin-bottom: 25px;
@@ -82,26 +83,89 @@
         }
         .result {
             display: none;
-            text-align: center;
             padding: 20px;
         }
         .result h2 {
             color: #04143B;
+            text-align: center;
             margin-bottom: 20px;
         }
         .score {
             font-size: 24px;
             color: #04143B;
+            text-align: center;
             margin: 20px 0;
+            font-weight: bold;
         }
-        .rank {
+        .result-message {
+            background: #e8f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: #04143B;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .result-message strong {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .tombola-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #04143B 0%, #0a2865 100%);
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+        }
+        .tombola-section h3 {
             font-size: 20px;
-            color: #666;
-            margin: 10px 0;
+            margin-bottom: 15px;
+        }
+        .tombola-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 30px;
+            background-color: white;
+            color: #04143B;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .tombola-btn:hover {
+            transform: scale(1.05);
+        }
+        .correction {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .correction h3 {
+            color: #04143B;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .correction-item {
+            padding: 10px;
+            margin: 8px 0;
+            border-left: 4px solid #04143B;
+            background: white;
+        }
+        .correction-item.correct {
+            border-left-color: #28a745;
+            background: #f0fff4;
+        }
+        .correction-item.incorrect {
+            border-left-color: #dc3545;
+            background: #fff5f5;
         }
         .error {
             color: red;
             margin-top: 10px;
+            text-align: center;
             display: none;
         }
     </style>
@@ -109,14 +173,21 @@
 <body>
     <div class="container">
         <div id="quiz-section">
-            <h1>🛩️ Quiz Wings Of Toulouse</h1>
-            <p class="subtitle">Testez vos connaissances en aviation !</p>
+            <h1>🛩️ Quiz d'Entraînement</h1>
+            <p class="subtitle">Wings Of Toulouse</p>
             
-            <div class="email-section">
-                <label for="email">Votre pseudo :</label>
-                <input type="email" id="email" placeholder="Votre pseudo" required>
-                <div class="error" id="email-error">Veuillez entrer un pseudo</div>
+            <div class="event-info">
+                <h2>🥞 Crêpes Gratuites & Quiz !</h2>
+                <p>
+                    <strong>Mercredi 3 décembre à La Bulle</strong><br>
+                    Viens récupérer ta crêpe gratuite et participe à notre quiz en direct pour gagner des tickets de tombola !<br>
+                    🎁 À la clé : de nombreux lots dont des vols d'avions !
+                </p>
             </div>
+
+            <p style="text-align: center; margin-bottom: 30px; color: #666; font-style: italic;">
+                Entraîne-toi avec ces 10 questions de culture générale sur l'aviation !
+            </p>
 
             <form id="quiz-form">
                 <div class="question">
@@ -128,11 +199,11 @@
                 </div>
 
                 <div class="question">
-                    <div class="question-title">2. Quel est le nom du premier avion à avoir franchi le mur du son ?</div>
-                    <div class="option"><input type="radio" name="q2" value="a"> Bell X-1</div>
-                    <div class="option"><input type="radio" name="q2" value="b"> Concorde</div>
-                    <div class="option"><input type="radio" name="q2" value="c"> F-86 Sabre</div>
-                    <div class="option"><input type="radio" name="q2" value="d"> MiG-15</div>
+                    <div class="question-title">2. Quel avion de ligne est surnommé "Jumbo Jet" ?</div>
+                    <div class="option"><input type="radio" name="q2" value="a"> Airbus A380</div>
+                    <div class="option"><input type="radio" name="q2" value="b"> Boeing 747</div>
+                    <div class="option"><input type="radio" name="q2" value="c"> Boeing 777</div>
+                    <div class="option"><input type="radio" name="q2" value="d"> Airbus A350</div>
                 </div>
 
                 <div class="question">
@@ -152,149 +223,151 @@
                 </div>
 
                 <div class="question">
-                    <div class="question-title">5. Quel avion de ligne est surnommé "Jumbo Jet" ?</div>
-                    <div class="option"><input type="radio" name="q5" value="a"> Airbus A380</div>
-                    <div class="option"><input type="radio" name="q5" value="b"> Boeing 747</div>
-                    <div class="option"><input type="radio" name="q5" value="c"> Boeing 777</div>
-                    <div class="option"><input type="radio" name="q5" value="d"> Airbus A350</div>
+                    <div class="question-title">5. Quel pilote français est connu pour être l'auteur du "Petit Prince" ?</div>
+                    <div class="option"><input type="radio" name="q5" value="a"> Roland Garros</div>
+                    <div class="option"><input type="radio" name="q5" value="b"> Antoine de Saint-Exupéry</div>
+                    <div class="option"><input type="radio" name="q5" value="c"> Jean Mermoz</div>
+                    <div class="option"><input type="radio" name="q5" value="d"> Henri Guillaumet</div>
                 </div>
 
                 <div class="question">
-                    <div class="question-title">6. Quel est le nom de l'avion de chasse furtif américain le plus connu ?</div>
-                    <div class="option"><input type="radio" name="q6" value="a"> F-16 Fighting Falcon</div>
-                    <div class="option"><input type="radio" name="q6" value="b"> F-22 Raptor</div>
-                    <div class="option"><input type="radio" name="q6" value="c"> F-117 Nighthawk</div>
-                    <div class="option"><input type="radio" name="q6" value="d"> F-35</div>
+                    <div class="question-title">6. Quelle compagnie aérienne a le code IATA "AF" ?</div>
+                    <div class="option"><input type="radio" name="q6" value="a"> American Airlines</div>
+                    <div class="option"><input type="radio" name="q6" value="b"> Air France</div>
+                    <div class="option"><input type="radio" name="q6" value="c"> Alitalia</div>
+                    <div class="option"><input type="radio" name="q6" value="d"> Austrian Airlines</div>
                 </div>
 
                 <div class="question">
-                    <div class="question-title">7. Quelle est la vitesse de croisière approximative d'un avion de ligne commercial ?</div>
-                    <div class="option"><input type="radio" name="q7" value="a"> 500 km/h</div>
-                    <div class="option"><input type="radio" name="q7" value="b"> 700 km/h</div>
-                    <div class="option"><input type="radio" name="q7" value="c"> 900 km/h</div>
-                    <div class="option"><input type="radio" name="q7" value="d"> 1100 km/h</div>
+                    <div class="question-title">7. Combien de moteurs possède un Airbus A380 ?</div>
+                    <div class="option"><input type="radio" name="q7" value="a"> 2</div>
+                    <div class="option"><input type="radio" name="q7" value="b"> 3</div>
+                    <div class="option"><input type="radio" name="q7" value="c"> 4</div>
+                    <div class="option"><input type="radio" name="q7" value="d"> 6</div>
                 </div>
 
                 <div class="question">
-                    <div class="question-title">8. Quel pilote français est connu pour être l'auteur du "Petit Prince" ?</div>
-                    <div class="option"><input type="radio" name="q8" value="a"> Roland Garros</div>
-                    <div class="option"><input type="radio" name="q8" value="b"> Antoine de Saint-Exupéry</div>
-                    <div class="option"><input type="radio" name="q8" value="c"> Jean Mermoz</div>
-                    <div class="option"><input type="radio" name="q8" value="d"> Henri Guillaumet</div>
+                    <div class="question-title">8. Quel aéroport possède le code IATA "CDG" ?</div>
+                    <div class="option"><input type="radio" name="q8" value="a"> Chicago</div>
+                    <div class="option"><input type="radio" name="q8" value="b"> Copenhague</div>
+                    <div class="option"><input type="radio" name="q8" value="c"> Paris Charles de Gaulle</div>
+                    <div class="option"><input type="radio" name="q8" value="d"> Cardiff</div>
                 </div>
 
                 <div class="question">
-                    <div class="question-title">9. Quelle compagnie aérienne a le code IATA "AF" ?</div>
-                    <div class="option"><input type="radio" name="q9" value="a"> American Airlines</div>
-                    <div class="option"><input type="radio" name="q9" value="b"> Air France</div>
-                    <div class="option"><input type="radio" name="q9" value="c"> Alitalia</div>
-                    <div class="option"><input type="radio" name="q9" value="d"> Austrian Airlines</div>
+                    <div class="question-title">9. Quelle est la vitesse de croisière approximative d'un avion de ligne commercial ?</div>
+                    <div class="option"><input type="radio" name="q9" value="a"> 500 km/h</div>
+                    <div class="option"><input type="radio" name="q9" value="b"> 700 km/h</div>
+                    <div class="option"><input type="radio" name="q9" value="c"> 900 km/h</div>
+                    <div class="option"><input type="radio" name="q9" value="d"> 1100 km/h</div>
                 </div>
 
                 <div class="question">
-                    <div class="question-title">10. Combien de moteurs possède un Airbus A380 ?</div>
-                    <div class="option"><input type="radio" name="q10" value="a"> 2</div>
-                    <div class="option"><input type="radio" name="q10" value="b"> 3</div>
-                    <div class="option"><input type="radio" name="q10" value="c"> 4</div>
-                    <div class="option"><input type="radio" name="q10" value="d"> 6</div>
+                    <div class="question-title">10. En quelle année le Concorde a-t-il effectué son dernier vol commercial ?</div>
+                    <div class="option"><input type="radio" name="q10" value="a"> 1999</div>
+                    <div class="option"><input type="radio" name="q10" value="b"> 2001</div>
+                    <div class="option"><input type="radio" name="q10" value="c"> 2003</div>
+                    <div class="option"><input type="radio" name="q10" value="d"> 2005</div>
                 </div>
 
-                <div class="question">
-                    <div class="question-title">11. Qu'est-ce qu'un "TCAS" en aviation ?</div>
-                    <div class="option"><input type="radio" name="q11" value="a"> Un système anticollision</div>
-                    <div class="option"><input type="radio" name="q11" value="b"> Un type de carburant</div>
-                    <div class="option"><input type="radio" name="q11" value="c"> Un mode de pilotage</div>
-                    <div class="option"><input type="radio" name="q11" value="d"> Un certificat de pilote</div>
-                </div>
-
-                <div class="question">
-                    <div class="question-title">12. Quel aéroport possède le code IATA "CDG" ?</div>
-                    <div class="option"><input type="radio" name="q12" value="a"> Chicago</div>
-                    <div class="option"><input type="radio" name="q12" value="b"> Copenhague</div>
-                    <div class="option"><input type="radio" name="q12" value="c"> Paris Charles de Gaulle</div>
-                    <div class="option"><input type="radio" name="q12" value="d"> Cardiff</div>
-                </div>
-
-                <div class="question">
-                    <div class="question-title">13. En quelle année le Concorde a-t-il effectué son dernier vol commercial ?</div>
-                    <div class="option"><input type="radio" name="q13" value="a"> 1999</div>
-                    <div class="option"><input type="radio" name="q13" value="b"> 2001</div>
-                    <div class="option"><input type="radio" name="q13" value="c"> 2003</div>
-                    <div class="option"><input type="radio" name="q13" value="d"> 2005</div>
-                </div>
-
-                <div class="question">
-                    <div class="question-title">14. Quelle altitude de croisière est typique pour un vol long-courrier ?</div>
-                    <div class="option"><input type="radio" name="q14" value="a"> 5 000 mètres</div>
-                    <div class="option"><input type="radio" name="q14" value="b"> 8 000 mètres</div>
-                    <div class="option"><input type="radio" name="q14" value="c"> 11 000 mètres</div>
-                    <div class="option"><input type="radio" name="q14" value="d"> 15 000 mètres</div>
-                </div>
-
-                <div class="question">
-                    <div class="question-title">15. Quel avion militaire français est surnommé "Rafale" ?</div>
-                    <div class="option"><input type="radio" name="q15" value="a"> Dassault Mirage 2000</div>
-                    <div class="option"><input type="radio" name="q15" value="b"> Dassault Rafale</div>
-                    <div class="option"><input type="radio" name="q15" value="c"> SEPECAT Jaguar</div>
-                    <div class="option"><input type="radio" name="q15" value="d"> Dassault Étendard</div>
-                </div>
-
-                <div class="error" id="form-error">Veuillez répondre à toutes les questions</div>
-                <button type="submit" class="submit-btn">Valider mes réponses</button>
+                <div class="error" id="form-error">⚠️ Veuillez répondre à toutes les questions</div>
+                <button type="submit" class="submit-btn">Voir mon résultat</button>
             </form>
         </div>
 
         <div id="result-section" class="result">
-            <h2>🎉 Merci d'avoir participé !</h2>
-            <div class="score">Score : <span id="score-display"></span>/15</div>
-            <div class="rank">Classement : <span id="rank-display"></span></div>
-            <div id="perfect-score" style="display: none; margin-top: 20px; padding: 15px; background-color: #fff3cd; border-radius: 4px; color: #856404;">
-                <strong>🏆 SCORE PARFAIT !</strong><br>
-                Vous avez remporté un ticket GRATUIT pour la tombola !<br>
-                Montrer à un membre de l'association pour récupérer votre ticket.
-            </div>
-            <div style="margin-top: 30px; padding: 20px; background-color: #f0f8ff; border-radius: 4px;">
-                <p style="color: #04143B; font-size: 18px; font-weight: bold; margin-bottom: 10px;">
-                    🎫 Participez à notre tombola et tentez de gagner un vol en avion !
-                </p>
-                <a href="https://tally.so/r/MeKJa0" target="_blank" style="display: inline-block; margin-top: 10px; padding: 12px 30px; background-color: #04143B; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
-                    Je veux gagner !
+            <h2>📊 Ton résultat</h2>
+            <div class="score">Score : <span id="score-display"></span>/10</div>
+            
+            <div class="result-message" id="result-message"></div>
+
+            <div class="tombola-section">
+                <h3>🎫 Participe à notre tombola !</h3>
+                <p>Tente ta chance pour gagner un vol en avion !</p>
+                <a href="https://tally.so/r/MeKJa0" target="_blank" class="tombola-btn">
+                    🎁 Je veux gagner 
                 </a>
+            </div>
+
+            <div class="correction">
+                <h3>✅ Correction des réponses</h3>
+                <div id="correction-list"></div>
             </div>
         </div>
     </div>
 
     <script>
         const correctAnswers = {
-            q1: 'b', q2: 'a', q3: 'b', q4: 'b', q5: 'b',
-            q6: 'c', q7: 'c', q8: 'b', q9: 'b', q10: 'c',
-            q11: 'a', q12: 'c', q13: 'c', q14: 'c', q15: 'b'
+            q1: 'b',
+            q2: 'b',
+            q3: 'b',
+            q4: 'b',
+            q5: 'b',
+            q6: 'b',
+            q7: 'c',
+            q8: 'c',
+            q9: 'c',
+            q10: 'c'
         };
 
-        let participants = {};
+        const questions = [
+            {
+                text: "En quelle année les frères Wright ont-ils effectué leur premier vol motorisé ?",
+                correct: "1903"
+            },
+            {
+                text: "Quel avion de ligne est surnommé 'Jumbo Jet' ?",
+                correct: "Boeing 747"
+            },
+            {
+                text: "Quelle est la ville d'origine de l'Airbus A380 ?",
+                correct: "Toulouse"
+            },
+            {
+                text: "Qui a été la première femme pilote à traverser l'Atlantique en solitaire ?",
+                correct: "Amelia Earhart"
+            },
+            {
+                text: "Quel pilote français est connu pour être l'auteur du 'Petit Prince' ?",
+                correct: "Antoine de Saint-Exupéry"
+            },
+            {
+                text: "Quelle compagnie aérienne a le code IATA 'AF' ?",
+                correct: "Air France"
+            },
+            {
+                text: "Combien de moteurs possède un Airbus A380 ?",
+                correct: "4"
+            },
+            {
+                text: "Quel aéroport possède le code IATA 'CDG' ?",
+                correct: "Paris Charles de Gaulle"
+            },
+            {
+                text: "Quelle est la vitesse de croisière approximative d'un avion de ligne commercial ?",
+                correct: "900 km/h"
+            },
+            {
+                text: "En quelle année le Concorde a-t-il effectué son dernier vol commercial ?",
+                correct: "2003"
+            }
+        ];
+
+        const resultMessages = {
+            perfect: "🏆 <strong>PARFAIT !</strong><br>Tu es un vrai expert en aviation ! Continue comme ça pour le quiz de mercredi !<br><br>📅 <strong>RDV mercredi 3 décembre à La Bulle</strong> pour des crêpes gratuites et le quiz en direct !",
+            excellent: "🌟 <strong>EXCELLENT !</strong><br>Tu t'approches de la perfection ! Quelques révisions et tu seras prêt pour mercredi !<br><br>📅 <strong>RDV mercredi 3 décembre à La Bulle</strong> pour des crêpes gratuites et le quiz en direct !",
+            good: "👍 <strong>BIEN JOUÉ !</strong><br>Tu as de bonnes bases ! Continue à t'entraîner avec nos prochains quiz pour améliorer ton score !<br><br>📅 <strong>RDV mercredi 3 décembre à La Bulle</strong> pour des crêpes gratuites et le quiz en direct !",
+            candobetter: "💪 <strong>PAS MAL !</strong><br>Tu peux faire mieux ! Profite de nos quiz d'entraînement quotidiens pour progresser !<br><br>📅 <strong>RDV mercredi 3 décembre à La Bulle</strong> pour des crêpes gratuites et le quiz en direct !"
+        };
 
         document.getElementById('quiz-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const email = document.getElementById('email').value.trim();
-            const emailError = document.getElementById('email-error');
             const formError = document.getElementById('form-error');
-            
-            emailError.style.display = 'none';
             formError.style.display = 'none';
 
-            if (!email) {
-                emailError.style.display = 'block';
-                return;
-            }
-
-            if (participants[email]) {
-                alert('Ce pseudo a déjà participé !');
-                return;
-            }
-
             let allAnswered = true;
-            for (let i = 1; i <= 15; i++) {
+            for (let i = 1; i <= 10; i++) {
                 if (!document.querySelector(`input[name="q${i}"]:checked`)) {
                     allAnswered = false;
                     break;
@@ -307,34 +380,48 @@
             }
 
             let score = 0;
-            for (let i = 1; i <= 15; i++) {
+            let userAnswers = {};
+            for (let i = 1; i <= 10; i++) {
                 const answer = document.querySelector(`input[name="q${i}"]:checked`).value;
+                userAnswers[`q${i}`] = answer;
                 if (answer === correctAnswers[`q${i}`]) {
                     score++;
                 }
             }
 
-            participants[email] = score;
-
-            const sortedScores = Object.values(participants).sort((a, b) => b - a);
-            const rank = sortedScores.indexOf(score) + 1;
-            const totalParticipants = Object.keys(participants).length;
-
             document.getElementById('score-display').textContent = score;
-            document.getElementById('rank-display').textContent = `${rank}${getRankSuffix(rank)} sur ${totalParticipants} participant${totalParticipants > 1 ? 's' : ''}`;
 
-            if (score === 15) {
-                document.getElementById('perfect-score').style.display = 'block';
+            let message;
+            if (score === 10) {
+                message = resultMessages.perfect;
+            } else if (score >= 8) {
+                message = resultMessages.excellent;
+            } else if (score >= 5) {
+                message = resultMessages.good;
+            } else {
+                message = resultMessages.candobetter;
             }
+            document.getElementById('result-message').innerHTML = message;
+
+            // Générer la correction
+            let correctionHTML = '';
+            for (let i = 1; i <= 10; i++) {
+                const isCorrect = userAnswers[`q${i}`] === correctAnswers[`q${i}`];
+                const cssClass = isCorrect ? 'correct' : 'incorrect';
+                const icon = isCorrect ? '✅' : '❌';
+                correctionHTML += `
+                    <div class="correction-item ${cssClass}">
+                        ${icon} <strong>Question ${i}:</strong> ${questions[i-1].text}<br>
+                        <strong>Bonne réponse :</strong> ${questions[i-1].correct}
+                    </div>
+                `;
+            }
+            document.getElementById('correction-list').innerHTML = correctionHTML;
 
             document.getElementById('quiz-section').style.display = 'none';
             document.getElementById('result-section').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
-        function getRankSuffix(rank) {
-            if (rank === 1) return 'er';
-            return 'ème';
-        }
     </script>
 </body>
 </html>
