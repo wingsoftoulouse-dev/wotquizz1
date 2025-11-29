@@ -418,12 +418,15 @@
             }
             document.getElementById('correction-list').innerHTML = correctionHTML;
 
+            // Masquer le quiz et afficher les résultats
             document.getElementById('quiz-section').style.display = 'none';
             document.getElementById('result-section').style.display = 'block';
+            
+            // Faire défiler vers le haut APRÈS l'affichage des résultats
             setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 50);
-
+        });
     </script>
 </body>
 </html>
