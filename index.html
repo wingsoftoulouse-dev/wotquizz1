@@ -420,8 +420,10 @@
 
             document.getElementById('quiz-section').style.display = 'none';
             document.getElementById('result-section').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+            setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}, 50);
+
     </script>
 </body>
 </html>
